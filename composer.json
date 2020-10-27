@@ -1,5 +1,5 @@
 {
-    "name": "luoying/wwwcity-service",
+    "name": "cy01/wwwcity-service",
     "autoload": {
         "psr-4": {
             "App\\": "app/",

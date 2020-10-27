@@ -21,12 +21,7 @@ class WWWCityService
 
         switch ($config_name) {
             case 'area':
-
-                try {
-                    return (new AreaService($host))->search();
-                } catch (RequestException $e) {
-                    abort($e->getCode(), '微服务：'. $e->getMessage());
-                }
+                return new AreaService($host);
             case 'user':
                 break;
             case 'sms':
