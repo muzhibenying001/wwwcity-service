@@ -1,11 +1,12 @@
 {
-    "name": "cy01/wwwcity-service",
+    "name": "luoying/wwwcity-service",
     "autoload": {
         "psr-4": {
             "App\\": "app/",
             "Cy\\WWWCityService\\": "src/"
         }
     },
+    "license": "MIT",
     "extra": {
         "laravel": {
             "providers": [
