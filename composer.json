@@ -1,0 +1,19 @@
+{
+    "name": "cy01/wwwcity-service",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Cy\\WWWCityService\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Cy\\WWWCityService\\WWWCityServiceProvider"
+            ],
+            "aliases": {
+                "WWWCityService": "Cy\\WWWCityService\\Facade"
+            }
+        }
+    }
+}
