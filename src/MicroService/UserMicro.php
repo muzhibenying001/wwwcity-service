@@ -1,27 +1,12 @@
 <?php
 
-namespace App\Libs\MicroService\UserMicroService;
+namespace Cy\WWWCityService\MicroService;
 
+use Cy\WWWCityService\Libs\MicroService\AGRequest;
+use Cy\WWWCityService\Libs\MicroService\BaseMicroService;
 
-use App\Libs\MicroService\AGRequest;
-use App\Libs\MicroService\BaseMicroService;
-
-
-// 用户微服务专用类
-class UserMicroService extends BaseMicroService
+class UserMicro extends BaseMicroService
 {
-
-    private $host;
-
-    public function __construct($host)
-    {
-        $this->host = $host;
-        if (!$this->host) {
-            throw new \Exception('缺少请求host', 5003);
-        }
-
-    }
-
     //token验证接口
     public function userToken($token)
     {

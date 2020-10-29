@@ -1,4 +1,7 @@
 `composer require cy01/wwwcity-service`
+### 要求
++ php7.2 + 
++ laravel5.5 + 
 
 ### 发布配置
 

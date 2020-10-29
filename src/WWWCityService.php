@@ -2,9 +2,12 @@
 
 namespace Cy\WWWCityService;
 
-use Cy\WWWCityService\Area\AreaService;
-use Illuminate\Http\Client\RequestException;
-use Illuminate\Support\Facades\Http;
+use Cy\WWWCityService\MicroService\AGMicro;
+use Cy\WWWCityService\MicroService\AreaMicro;
+use Cy\WWWCityService\MicroService\FinanceMicro;
+use Cy\WWWCityService\MicroService\OrgMicro;
+use Cy\WWWCityService\MicroService\SmsMicro;
+use Cy\WWWCityService\MicroService\UserMicro;
 
 class WWWCityService
 {
@@ -21,18 +24,17 @@ class WWWCityService
 
         switch ($config_name) {
             case 'area':
-                return new AreaService($host);
+                return new AreaMicro($host);
             case 'user':
-                break;
+                return new UserMicro($host);
             case 'sms':
-                break;
+                return new SmsMicro($host);
+            case 'ag':
+                return new AGMicro($host);
+            case 'finance':
+                return new FinanceMicro($host);
+            case 'org':
+                return new OrgMicro($host);
         }
     }
-
-    private function request($host)
-    {
-        return HTTP::post($host);
-    }
-
-
 }
