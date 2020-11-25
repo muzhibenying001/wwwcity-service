@@ -6,6 +6,7 @@ use Cy\WWWCityService\MicroService\AGMicro;
 use Cy\WWWCityService\MicroService\AreaMicro;
 use Cy\WWWCityService\MicroService\FinanceMicro;
 use Cy\WWWCityService\MicroService\OrgMicro;
+use Cy\WWWCityService\MicroService\RmsMicro;
 use Cy\WWWCityService\MicroService\SmsMicro;
 use Cy\WWWCityService\MicroService\UserMicro;
 
@@ -35,6 +36,8 @@ class WWWCityService
                 return new FinanceMicro($host);
             case 'org':
                 return new OrgMicro($host);
+            case 'rms':
+                return new RmsMicro($host);
         }
     }
 }

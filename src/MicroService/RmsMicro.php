@@ -5,7 +5,7 @@ namespace Cy\WWWCityService\MicroService;
 use Cy\WWWCityService\Libs\MicroService\AGRequest;
 use Cy\WWWCityService\Libs\MicroService\BaseMicroService;
 
-class RmsService extends BaseMicroService
+class RmsMicro extends BaseMicroService
 {
 	/**
 	 * 增加类型
