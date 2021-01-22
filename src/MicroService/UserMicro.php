@@ -282,4 +282,26 @@ class UserMicro extends BaseMicroService
             'image' => $image,
         ]);
     }
+
+    /**
+     * 车辆驾驶证识别
+     * @param $data
+     * @return mixed
+     */
+    public function ocrDrivingLicense($data)
+    {
+        $this->isSet($data, 'image');
+        return AGRequest::getInstance()->post($this->host, '/ocr/driving/license', $data);
+    }
+
+    /**
+     * 车辆行驶证识别
+     * @param $data
+     * @return mixed
+     */
+    public function ocrVehicleLicense($data)
+    {
+        $this->isSet($data, ['image', 'side']);
+        return AGRequest::getInstance()->post($this->host, '/ocr/vehicle/license', $data);
+    }
 }

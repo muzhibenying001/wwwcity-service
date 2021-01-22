@@ -2,14 +2,6 @@
 
 namespace Cy\WWWCityService;
 
-use Cy\WWWCityService\MicroService\AGMicro;
-use Cy\WWWCityService\MicroService\AreaMicro;
-use Cy\WWWCityService\MicroService\FinanceMicro;
-use Cy\WWWCityService\MicroService\OrgMicro;
-use Cy\WWWCityService\MicroService\RmsMicro;
-use Cy\WWWCityService\MicroService\SmsMicro;
-use Cy\WWWCityService\MicroService\UserMicro;
-
 class WWWCityService
 {
     private $config;
@@ -23,21 +15,12 @@ class WWWCityService
     {
         $host = $this->config[$config_name]['HOST'];
 
-        switch ($config_name) {
-            case 'area':
-                return new AreaMicro($host);
-            case 'user':
-                return new UserMicro($host);
-            case 'sms':
-                return new SmsMicro($host);
-            case 'ag':
-                return new AGMicro($host);
-            case 'finance':
-                return new FinanceMicro($host);
-            case 'org':
-                return new OrgMicro($host);
-            case 'rms':
-                return new RmsMicro($host);
+        $class = 'Cy\WWWCityService\MicroService\\' . ucwords($config_name) . 'Micro';
+
+        if (class_exists($class)) {
+            return new $class($host, $config_name);
         }
+
+        abort(5000, '微服务' . $config_name . '未开发');
     }
 }

@@ -35,4 +35,14 @@ return [
     'rms' => [
         'HOST'=> env('RMS_HOST', '')
     ],
+
+    # 来公益吧
+    'shell' => [
+        'HOST'=> env('SHELL_HOST', '')
+    ],
+
+    # 问答微服务
+    'form' => [
+        'HOST'=> env('FORM_HOST', '')
+    ],
 ];
