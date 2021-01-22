@@ -46,10 +46,8 @@ class AGRequest
         $request = new HttpRequest($host, $url, HttpMethod::POST, $this->ACCESS_KEY, $this->ACCESS_SECRET);
         //设定Content-Type，根据服务器端接受的值来设置
         $request->setHeader(HttpHeader::HTTP_HEADER_CONTENT_TYPE, ContentType::CONTENT_TYPE_FORM);
-
         //设定Accept，根据服务器端接受的值来设置
         $request->setHeader(HttpHeader::HTTP_HEADER_ACCEPT, ContentType::CONTENT_TYPE_JSON);
-
         // set header
         foreach ($headers as $key => $value) {
             $request->setHeader($key, $value);
@@ -67,7 +65,6 @@ class AGRequest
         $request->setSignHeader(SystemHeader::X_CA_TIMESTAMP);
         //$request->setSignHeader("a-header1");
         $response = HttpClient::execute($request);
-
         return $this->parseResponseAndDoLog($response, $request);
     }
 
@@ -95,7 +92,6 @@ class AGRequest
         $request->setSignHeader(SystemHeader::X_CA_TIMESTAMP);
         //$request->setSignHeader("a-header1");
         $response = HttpClient::execute($request);
-
         return $this->parseResponseAndDoLog($response, $request);
     }
 
