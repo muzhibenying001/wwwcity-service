@@ -38,15 +38,14 @@ class OrgMicro extends BaseMicroService
     }
 
     //组织节点详情
-    public function nodeDetail($mobile, $content, $sign, $type = 0)
+    public function nodeDetail($familyId, $uuid)
     {
         return AGRequest::getInstance()->post(
             $this->host,
             '/familyorg/get',
             ['uuid' => '1',
-                'family_id' => '1',
-                'sign' => $sign,
-                'type' => $type,
+                'family_id' => $familyId,
+                'uuid' => $uuid
             ]
         );
     }
