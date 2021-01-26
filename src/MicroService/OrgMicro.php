@@ -22,19 +22,17 @@ class OrgMicro extends BaseMicroService
 
 
     //组织节点列表
-    public function nodeList($mobile, $content, $sign, $type = 0)
+    public function nodeList($appId, $familyId, $parentId, $skip = 0, $limit=20)
     {
         return AGRequest::getInstance()->post(
             $this->host,
             '/familyorg/search',
             [
-                'appid' => '',
-                'family_id' => '1',
-                'parentid' => '1',
-                'skip' => '',
-                'limit' => '',
-                'sign' => $sign,
-                'type' => $type,
+                'appid' => $appId,
+                'family_id' => $familyId,
+                'parentid' => $parentId,
+                'skip' => $skip,
+                'limit' => $limit
             ]
         );
     }
