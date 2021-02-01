@@ -7,6 +7,7 @@ use Cy\WWWCityService\Libs\MicroService\BaseMicroService;
 
 class OrgMicro extends BaseMicroService
 {
+    /*
     //组织类型列表
     public function orgTypeList($mobile, $content, $sign, $type = 0)
     {
@@ -19,7 +20,7 @@ class OrgMicro extends BaseMicroService
             ]
         );
     }
-
+    */
 
     //组织节点列表
     public function nodeList($appId, $familyId, $parentId, $skip = 0, $limit=20)
@@ -88,6 +89,7 @@ class OrgMicro extends BaseMicroService
         );
     }
 
+    /*
     //删除组织节点
     public function nodeDelete($mobile, $content, $sign, $type = 0)
     {
@@ -101,6 +103,7 @@ class OrgMicro extends BaseMicroService
             ]
         );
     }
+    */
 
     //绑定组织节点和框架 typeid=51公益架构
     public function nodeBindFrame($orgName, $orgUuid, $orgType)
@@ -118,6 +121,7 @@ class OrgMicro extends BaseMicroService
         );
     }
 
+    /*
     //解绑组织节点和框架
     public function nodeUnbindFrame($mobile, $content, $sign, $type = 0)
     {
@@ -132,6 +136,75 @@ class OrgMicro extends BaseMicroService
             ]
         );
     }
+    */
 
 
+    //员工列表
+    public function employeeList($orgId, $levelId, $positionUuid, $skip = 0, $limit=200)
+    {
+        return AGRequest::getInstance()->post(
+            $this->host,
+            '/employee/search',
+            [
+                'orgid' => $orgId,
+                'levelid' => $levelId,
+                'position_uuid' => $positionUuid,
+                'skip' => $skip,
+                'limit' => $limit
+            ]
+        );
+    }
+    //员工列表
+    public function employeeFire($id)
+    {
+        return AGRequest::getInstance()->post(
+            $this->host,
+            '/employee/get',
+            [
+                'id' => $id
+            ]
+        );
+    }
+
+
+    //员工列表
+    public function employeeHire($userId, $realName, $mobile, $internalEmail, $gender, $education,
+                                 $school, $married, $political, $birthday, $idCard, $hireType, $memo, $hiredDate, $onDate)
+    {
+        return AGRequest::getInstance()->post(
+            $this->host,
+            '/employee/hire',
+            [
+                'userid' => $userId,
+                'realname' => $realName,
+                'mobile' => $mobile,
+                'internal_email' => $internalEmail,
+                'gender' => $gender,
+                'education' => $education,
+                'school' => $school,
+                'married' => $married,
+                'political' => $political,
+                'birthday' => $birthday,
+                'idcard' => $idCard,
+                'hire_type' => $hireType,
+                'memo' => $memo,
+                'hiredate' => $hiredDate,
+                'ondate' => $onDate,
+                'limit' => $gender,
+                'limit' => $gender
+            ]
+        );
+    }
+    //员工列表
+    public function employeeFire($id, $fireDate)
+    {
+        return AGRequest::getInstance()->post(
+            $this->host,
+            '/employee/fire',
+            [
+                'id' => $id,
+                'firedate' => $fireDate
+            ]
+        );
+    }
 }
