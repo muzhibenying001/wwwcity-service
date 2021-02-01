@@ -155,7 +155,7 @@ class OrgMicro extends BaseMicroService
         );
     }
     //员工列表
-    public function employeeFire($id)
+    public function employeeGet($id)
     {
         return AGRequest::getInstance()->post(
             $this->host,
