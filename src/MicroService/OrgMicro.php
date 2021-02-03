@@ -140,12 +140,13 @@ class OrgMicro extends BaseMicroService
 
 
     //员工列表
-    public function employeeList($orgId, $levelId, $positionUuid, $skip = 0, $limit=200)
+    public function employeeList($familyId, $orgId, $levelId, $positionUuid, $skip = 0, $limit=200)
     {
         return AGRequest::getInstance()->post(
             $this->host,
             '/employee/search',
             [
+                'familyid' => $familyId,
                 'orgid' => $orgId,
                 'levelid' => $levelId,
                 'position_uuid' => $positionUuid,
