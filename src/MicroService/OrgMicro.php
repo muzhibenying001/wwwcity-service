@@ -142,17 +142,28 @@ class OrgMicro extends BaseMicroService
     //员工列表
     public function employeeList($familyId, $orgId, $levelId, $positionUuid, $skip = 0, $limit=200)
     {
+        $data = [];
+        if($familyId){
+            $data['familyid'] = $familyId;
+        }
+        if($orgId){
+            $data['orgid'] = $orgId;
+        }
+        if($levelId){
+            $data['levelid'] = $levelId;
+        }
+        if($positionUuid){
+            $data['position_uuid'] = $positionUuid;
+        }
+        if($familyId){
+            $data['familyid'] = $familyId;
+        }
+        $data['skip'] = $skip;
+        $data['limit'] = $limit;
         return AGRequest::getInstance()->post(
             $this->host,
             '/employee/search',
-            [
-                'familyid' => $familyId,
-                'orgid' => $orgId,
-                'levelid' => $levelId,
-                'position_uuid' => $positionUuid,
-                'skip' => $skip,
-                'limit' => $limit
-            ]
+            $data
         );
     }
     //员工列表
