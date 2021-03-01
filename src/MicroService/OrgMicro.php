@@ -140,7 +140,7 @@ class OrgMicro extends BaseMicroService
 
 
     //员工列表
-    public function employeeList($familyId, $realName, $orgId, $levelId, $positionUuid, $skip = 0, $limit=200)
+    public function employeeList($familyId, $realName, $userUuid, $orgId, $levelId, $positionUuid, $skip = 0, $limit=200)
     {
         $data = [];
         if($familyId){
@@ -151,6 +151,9 @@ class OrgMicro extends BaseMicroService
         }
         if($orgId){
             $data['orgid'] = $orgId;
+        }
+        if($userUuid){
+            $data['user_uuid'] = $userUuid;
         }
         if($levelId){
             $data['levelid'] = $levelId;
